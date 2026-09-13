@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Five full-length practice tests for the Ontario Grade 3 EQAO Assessment of Reading, Writing and Mathematics.">
+<title>Grade 3 EQAO Practice Tests</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  html{color-scheme:light dark}
+  body{margin:0;font:14px/1.5 system-ui,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<style>
+/* ------------------------------------------------------------------ tokens */
+:root{
+  --paper:#F7F6F1; --surface:#FFFFFF; --surface-2:#F1EFE8; --surface-3:#E9E6DC;
+  --ink:#16202C; --ink-soft:#4C5A69; --ink-faint:#84919F;
+  --rule:#DEDBD1; --rule-strong:#C4C0B3;
+  --accent:#1B6B7F; --accent-ink:#0F4E5E; --accent-wash:#E2EDEF;
+  --spark:#C25A1B; --spark-wash:#FAEDE2;
+  --good:#2C7A44; --good-wash:#E3F0E6;
+  --bad:#AE3D2B; --bad-wash:#F8E7E3;
+  --lv1:#AE3D2B; --lv2:#C08019; --lv3:#2C7A44; --lv4:#1B6B7F;
+  --focus:#1B6B7F;
+  --shadow-s:0 1px 2px rgba(20,28,38,.05);
+  --shadow-m:0 2px 4px rgba(20,28,38,.05),0 8px 20px rgba(20,28,38,.05);
+  --r-s:6px; --r-m:10px; --r-l:16px;
+  --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --disp:"Bricolage Grotesque","Public Sans",-apple-system,sans-serif;
+  --read:"Literata",Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12171E; --surface:#1A2029; --surface-2:#212933; --surface-3:#2A333F;
+    --ink:#E9EDF1; --ink-soft:#A3B0BD; --ink-faint:#78ured;
+    --ink-faint:#788694;
+    --rule:#2C3641; --rule-strong:#41505F;
+    --accent:#63BDD0; --accent-ink:#8FD6E5; --accent-wash:#15303A;
+    --spark:#E4914F; --spark-wash:#32241A;
+    --good:#66BE83; --good-wash:#162E1E; --bad:#DC8875; --bad-wash:#311C17;
+    --lv1:#DC8875; --lv2:#DBA843; --lv3:#66BE83; --lv4:#63BDD0;
+    --focus:#8FD6E5;
+    --shadow-s:0 1px 2px rgba(0,0,0,.3);
+    --shadow-m:0 2px 4px rgba(0,0,0,.3),0 8px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12171E; --surface:#1A2029; --surface-2:#212933; --surface-3:#2A333F;
+  --ink:#E9EDF1; --ink-soft:#A3B0BD; --ink-faint:#788694;
+  --rule:#2C3641; --rule-strong:#41505F;
+  --accent:#63BDD0; --accent-ink:#8FD6E5; --accent-wash:#15303A;
+  --spark:#E4914F; --spark-wash:#32241A;
+  --good:#66BE83; --good-wash:#162E1E; --bad:#DC8875; --bad-wash:#311C17;
+  --lv1:#DC8875; --lv2:#DBA843; --lv3:#66BE83; --lv4:#63BDD0;
+  --focus:#8FD6E5;
+  --shadow-s:0 1px 2px rgba(0,0,0,.3);
+  --shadow-m:0 2px 4px rgba(0,0,0,.3),0 8px 20px rgba(0,0,0,.25);
+}
+
+/* -------------------------------------------------------------------- base */
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+h1,h2,h3{font-family:var(--disp);margin:0;text-wrap:balance;letter-spacing:-.015em;line-height:1.15}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:10px 16px;z-index:60;border-radius:0 0 var(--r-s) 0}
+.skip:focus{left:0}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0}
+.sec-title{font-size:clamp(21px,3vw,26px);font-weight:700;color:var(--ink)}
+.sec-lede{color:var(--ink-soft);font-size:14.5px;margin-top:6px;max-width:60ch}
+.panel-label{font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ------------------------------------------------------------------ chrome */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 20px;border-bottom:1px solid var(--rule);background:var(--surface);
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{
+  width:30px;height:30px;flex:0 0 30px;border-radius:7px;background:var(--accent);
+  color:#fff;font-family:var(--disp);font-weight:800;font-size:14px;
+  display:grid;place-items:center;letter-spacing:-.02em;
+}
+:root[data-theme="dark"] .brand-mark{color:#0F1A20}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand-mark{color:#0F1A20}}
+.brand-name{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:-.01em}
+.brand-sub{font-size:12px;color:var(--ink-faint);display:block;font-family:var(--sans);font-weight:400;letter-spacing:0}
+.icon-toggle{
+  border:1px solid var(--rule-strong);background:var(--surface);border-radius:999px;
+  width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:0 0 36px;
+}
+.icon-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.icon-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7}
+
+/* --------------------------------------------------------------- scorebar */
+#scorebar{
+  position:sticky;top:0;z-index:20;background:var(--surface);
+  border-bottom:1px solid var(--rule);box-shadow:var(--shadow-s);
+}
+.scorebar-inner{
+  max-width:920px;margin:0 auto;padding:10px 20px 8px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.sb-left{display:flex;align-items:center;gap:12px;min-width:0}
+.sb-test{font-family:var(--disp);font-weight:700;font-size:15px}
+.sb-marks{display:flex;gap:6px;flex-wrap:wrap}
+.sb-chip{
+  border:1px solid var(--rule);border-radius:var(--r-s);padding:4px 9px;background:var(--surface-2);
+  display:flex;flex-direction:column;line-height:1.25;min-width:64px;
+}
+.sb-chip-label{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.sb-chip-val{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.sb-total{background:var(--accent-wash);border-color:var(--accent)}
+.sb-total .sb-chip-val{color:var(--accent-ink);font-size:15.5px}
+.progress{height:5px;background:var(--surface-3);overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);transition:width .3s ease}
+.progress-label{
+  max-width:920px;margin:0 auto;padding:4px 20px 7px;
+  font-size:11.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums;
+}
+
+/* ----------------------------------------------------------------- layout */
+#app{max-width:920px;margin:0 auto;padding-block:28px 64px;padding-left:20px;padding-right:20px}
+
+/* ------------------------------------------------------------------- home */
+.home-head{max-width:62ch;margin-bottom:34px}
+.home-title{font-size:clamp(30px,6vw,50px);font-weight:800;letter-spacing:-.03em;margin:10px 0 14px;display:block}
+.home-title span{display:block}
+.home-title-sub{font-size:clamp(15px,2.4vw,20px);font-weight:500;color:var(--ink-soft);letter-spacing:-.01em;margin-top:6px;line-height:1.3}
+.home-lede{color:var(--ink-soft);font-size:15.5px;max-width:62ch}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-bottom:46px}
+.test-card{
+  text-align:left;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-m);
+  padding:16px 16px 13px;cursor:pointer;display:flex;flex-direction:column;gap:12px;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.test-card:hover{border-color:var(--accent);box-shadow:var(--shadow-m);transform:translateY(-2px)}
+.test-card-top{display:flex;gap:12px;align-items:flex-start}
+.test-no{
+  font-family:var(--disp);font-weight:800;font-size:20px;width:38px;height:38px;flex:0 0 38px;
+  display:grid;place-items:center;border-radius:9px;background:var(--accent-wash);color:var(--accent-ink);
+}
+.test-card-title{font-size:17px;font-weight:700}
+.test-card-sub{font-size:12.5px;color:var(--ink-faint);margin-top:2px;font-variant-numeric:tabular-nums}
+.mini-bar{height:4px;background:var(--surface-3);border-radius:999px;overflow:hidden}
+.mini-bar-fill{height:100%;background:var(--accent);border-radius:999px}
+.test-card-foot{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.test-card-mark{font-weight:700;color:var(--ink);font-size:14px}
+.how{margin-bottom:34px}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r-m);overflow:hidden;margin-top:18px}
+.how-card{background:var(--surface);padding:18px 17px}
+.how-card h3{font-size:14.5px;font-weight:700;margin-bottom:7px}
+.how-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.62}
+.how-note{margin-top:9px !important;font-size:12.5px !important;color:var(--accent-ink) !important;font-weight:600}
+.honest{border-left:3px solid var(--spark);background:var(--spark-wash);padding:16px 18px;border-radius:0 var(--r-m) var(--r-m) 0;display:flex;flex-direction:column;gap:9px;margin-bottom:30px}
+.honest p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;max-width:72ch}
+.site-foot{border-top:1px solid var(--rule);padding-top:18px}
+.site-foot p{font-size:12px;color:var(--ink-faint);line-height:1.6;max-width:80ch}
+
+/* ------------------------------------------------------------------- rail */
+.rail{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.rail-group{display:flex;flex-direction:column;gap:6px}
+.rail-group-name{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
+.rail-row{display:flex;gap:5px;flex-wrap:wrap}
+.chip{
+  border:1px solid var(--rule-strong);background:var(--surface);border-radius:var(--r-s);
+  padding:5px 9px;cursor:pointer;display:flex;flex-direction:column;line-height:1.25;min-width:60px;
+  transition:border-color .15s,background .15s;
+}
+.chip:hover{border-color:var(--accent)}
+.chip-name{font-size:12px;font-weight:600;white-space:nowrap}
+.chip-count{font-size:10px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip.active .chip-count{color:rgba(255,255,255,.8)}
+:root[data-theme="dark"] .chip.active,
+:root[data-theme="dark"] .chip.active .chip-count{color:#0F1A20}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .chip.active,
+  :root:not([data-theme="light"]) .chip.active .chip-count{color:#0F1A20}
+}
+.chip.done:not(.active){border-color:var(--good);background:var(--good-wash)}
+.rail-results{margin-left:auto}
+
+/* --------------------------------------------------------- section header */
+.section-head{margin-bottom:22px}
+.section-title{font-size:clamp(23px,4vw,33px);font-weight:800;letter-spacing:-.025em;margin:6px 0 6px}
+.section-facts{font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+
+/* ---------------------------------------------------------------- passage */
+.passage{
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-m);
+  padding:24px 24px 22px;margin-bottom:26px;box-shadow:var(--shadow-s);
+}
+.passage-head{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.passage-kind{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 8px;border-radius:999px}
+:root[data-theme="dark"] .passage-kind{color:#0F1A20}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .passage-kind{color:#0F1A20}}
+.passage-words{font-size:11.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.passage-title{font-family:var(--read);font-size:clamp(20px,3.4vw,27px);font-weight:600;letter-spacing:-.01em;margin-bottom:14px}
+.passage-intro{font-size:13.5px;color:var(--ink-soft);font-style:italic;margin-bottom:12px}
+.passage-body{display:flex;flex-direction:column;gap:13px}
+.para{display:flex;gap:13px;align-items:flex-start}
+.para-no{
+  flex:0 0 20px;font-size:11px;font-weight:700;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;padding-top:5px;text-align:right;
+  border-right:1px solid var(--rule);padding-right:7px;align-self:stretch;
+}
+.para p{font-family:var(--read);font-size:16.5px;line-height:1.72;max-width:66ch}
+.passage-feature{margin-top:18px}
+
+/* ------------------------------------------------------------ writing task */
+.prompt-card{
+  background:var(--accent-wash);border:1px solid var(--accent);border-radius:var(--r-m);
+  padding:20px 22px;margin-bottom:26px;display:flex;flex-direction:column;gap:8px;
+}
+.prompt-title{font-size:20px;font-weight:700;letter-spacing:-.015em}
+.prompt-instruction{font-size:15.5px;color:var(--ink);line-height:1.65;max-width:64ch}
+.prompt-list{margin:2px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.prompt-list li{font-size:13.5px;color:var(--ink-soft)}
+
+/* ----------------------------------------------------------------- qcards */
+.qlist{display:flex;flex-direction:column;gap:14px}
+.qcard{
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--rule-strong);
+  border-radius:0 var(--r-m) var(--r-m) 0;padding:18px 20px 16px;
+  display:flex;flex-direction:column;gap:13px;
+}
+.qcard.is-right{border-left-color:var(--good)}
+.qcard.is-wrong{border-left-color:var(--bad)}
+.qhead{display:flex;gap:12px;align-items:flex-start}
+.qnum{
+  flex:0 0 27px;height:27px;border-radius:7px;background:var(--surface-3);color:var(--ink-soft);
+  font-family:var(--disp);font-weight:700;font-size:13px;display:grid;place-items:center;
+}
+.qmeta{min-width:0;flex:1}
+.qtags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{
+  font-size:10px;font-weight:600;letter-spacing:.04em;padding:2px 7px;border-radius:999px;
+  background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--rule);white-space:nowrap;
+}
+.tag-strand{background:var(--accent-wash);color:var(--accent-ink);border-color:transparent;font-weight:700}
+.tag-field{background:var(--spark-wash);color:var(--spark);border-color:transparent}
+.tag-pts{font-variant-numeric:tabular-nums}
+.qstem{font-size:16.5px;line-height:1.6;max-width:64ch}
+.qstem b{font-weight:700}
+.qbody{display:flex;flex-direction:column;gap:10px}
+.qnote{font-size:12.5px;color:var(--ink-faint)}
+
+/* --------------------------------------------------------------- choices */
+.choices{display:flex;flex-direction:column;gap:7px}
+.choice{
+  display:flex;align-items:flex-start;gap:11px;padding:11px 13px;cursor:pointer;
+  border:1px solid var(--rule);border-radius:var(--r-m);background:var(--surface-2);
+  transition:border-color .14s,background .14s;
+}
+.choice:hover{border-color:var(--accent)}
+.choice input{margin:2px 0 0;accent-color:var(--accent);width:18px;height:18px;flex:0 0 18px}
+.choice input:disabled{cursor:default}
+.choice-key{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--ink-faint);flex:0 0 14px}
+.choice-text{font-size:15.5px;line-height:1.5;min-width:0}
+.choice.key{border-color:var(--good);background:var(--good-wash)}
+.choice.key .choice-key{color:var(--good)}
+.choice.miss{border-color:var(--bad);background:var(--bad-wash)}
+.choice.miss .choice-key{color:var(--bad)}
+
+/* ------------------------------------------------------------ slots/drag */
+.slot-select{
+  font-family:var(--sans);font-size:15px;padding:6px 9px;border-radius:var(--r-s);
+  border:1.5px solid var(--accent);background:var(--surface);color:var(--ink);
+  margin:0 3px;max-width:100%;
+}
+.slot-select.ok{border-color:var(--good);background:var(--good-wash)}
+.slot-select.no{border-color:var(--bad);background:var(--bad-wash)}
+.slot-row{display:flex;gap:8px;flex-wrap:wrap}
+.token-tray{background:var(--surface-2);border:1px dashed var(--rule-strong);border-radius:var(--r-m);padding:11px 13px;display:flex;flex-direction:column;gap:8px}
+.token-row{display:flex;gap:7px;flex-wrap:wrap}
+.token{
+  border:1.5px dashed var(--rule-strong);background:var(--surface);border-radius:var(--r-m);
+  padding:7px 13px;font-size:15px;font-weight:600;cursor:grab;font-variant-numeric:tabular-nums;
+}
+.token:hover{border-color:var(--accent)}
+.token.picked{border-style:solid;border-color:var(--accent);background:var(--accent-wash);color:var(--accent-ink)}
+.token.used{opacity:.32;cursor:default;text-decoration:line-through}
+.drop-zone{display:flex;gap:9px;flex-wrap:wrap;align-items:flex-start}
+.drop-target{
+  min-width:78px;min-height:46px;border:2px dashed var(--rule-strong);border-radius:var(--r-m);
+  background:var(--surface-2);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:6px 10px;cursor:pointer;gap:1px;
+}
+.drop-target.over{border-color:var(--accent);background:var(--accent-wash)}
+.drop-target.filled{border-style:solid;border-color:var(--accent);background:var(--accent-wash)}
+.drop-target.fixed{border-style:solid;border-color:var(--rule-strong);background:var(--surface-3);cursor:default}
+.drop-target.ok{border-color:var(--good);background:var(--good-wash)}
+.drop-target.no{border-color:var(--bad);background:var(--bad-wash)}
+.tok-text{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.tok-text.placeholder{min-height:20px;min-width:26px}
+.drop-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+.eqlines{display:flex;flex-direction:column;gap:9px;font-size:16.5px;font-variant-numeric:tabular-nums}
+.eqline{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.eqline .drop-target{min-width:52px;min-height:36px;padding:3px 7px}
+
+/* ------------------------------------------------------------------ order */
+.order-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:none}
+.order-item{
+  display:flex;align-items:center;gap:11px;padding:9px 12px;
+  border:1px solid var(--rule);border-radius:var(--r-m);background:var(--surface-2);
+}
+.order-item.ok{border-color:var(--good);background:var(--good-wash)}
+.order-item.no{border-color:var(--bad);background:var(--bad-wash)}
+.order-pos{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--ink-faint);flex:0 0 16px}
+.order-text{flex:1;font-size:15px;min-width:0}
+.order-ctrls{display:flex;gap:4px;flex:0 0 auto}
+.iconbtn{
+  width:31px;height:31px;border:1px solid var(--rule-strong);background:var(--surface);
+  border-radius:var(--r-s);cursor:pointer;font-size:14px;line-height:1;display:grid;place-items:center;
+}
+.iconbtn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.iconbtn:disabled{opacity:.3;cursor:default}
+
+/* -------------------------------------------------------------- open resp */
+.answer-box{
+  width:100%;font-family:var(--read);font-size:16px;line-height:1.6;padding:13px 14px;
+  border:1.5px solid var(--rule-strong);border-radius:var(--r-m);background:var(--surface-2);
+  color:var(--ink);resize:vertical;
+}
+.answer-box:focus{border-color:var(--accent);background:var(--surface)}
+.selfmark{display:flex;flex-direction:column;gap:11px;padding-top:4px}
+.rubric{border:1px solid var(--rule);border-radius:var(--r-m);padding:11px 13px 12px;margin:0;background:var(--surface-2)}
+.rubric legend{font-size:12px;font-weight:700;color:var(--ink-soft);padding:0 6px}
+.rubric-row{display:flex;align-items:flex-start;gap:9px;padding:5px 0;cursor:pointer}
+.rubric-row input{margin:3px 0 0;accent-color:var(--accent);width:16px;height:16px;flex:0 0 16px}
+.rubric-code{
+  font-family:var(--disp);font-weight:700;font-size:12px;flex:0 0 20px;text-align:center;
+  background:var(--surface-3);border-radius:4px;color:var(--ink-soft);line-height:1.7;
+}
+.rubric-text{font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+
+/* ------------------------------------------------------------------ tools */
+.qtools{display:flex;gap:7px;flex-wrap:wrap;padding-top:2px}
+.btn{
+  border:1px solid var(--rule-strong);background:var(--surface);border-radius:var(--r-s);
+  padding:7px 13px;font-size:13.5px;font-weight:600;cursor:pointer;
+  transition:border-color .14s,background .14s,color .14s;
+}
+.btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.42;cursor:default}
+.btn-hint{border-color:var(--spark);color:var(--spark)}
+.btn-hint:hover:not(:disabled){background:var(--spark-wash);color:var(--spark);border-color:var(--spark)}
+.btn-check{border-color:var(--accent);color:var(--accent)}
+.btn-check:hover:not(:disabled){background:var(--accent-wash)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+:root[data-theme="dark"] .btn-primary{color:#0F1A20}
+:root[data-theme="dark"] .btn-primary:hover{color:#0F1A20}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .btn-primary,
+  :root:not([data-theme="light"]) .btn-primary:hover{color:#0F1A20}
+}
+.btn-ghost{background:transparent;border-color:var(--rule-strong)}
+.btn-danger{border-color:var(--bad);color:var(--bad)}
+.btn-danger:hover{background:var(--bad-wash);color:var(--bad);border-color:var(--bad)}
+.btn-back{padding:5px 10px;font-size:12.5px}
+
+/* ----------------------------------------------------------------- panels */
+.panel{border-radius:var(--r-m);padding:13px 15px;display:flex;flex-direction:column;gap:6px}
+.panel p{font-size:14px;line-height:1.62;color:var(--ink-soft);max-width:64ch}
+.panel-hint{background:var(--spark-wash);border-left:3px solid var(--spark);border-radius:0 var(--r-m) var(--r-m) 0}
+.panel-answer{border:1px solid var(--rule)}
+.panel-answer.good{background:var(--good-wash);border-color:var(--good)}
+.panel-answer.bad{background:var(--bad-wash);border-color:var(--bad)}
+.answer-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.verdict{font-family:var(--disp);font-weight:700;font-size:16px}
+.panel-answer.good .verdict{color:var(--good)}
+.panel-answer.bad .verdict{color:var(--bad)}
+.verdict-pts{font-size:12.5px;font-weight:600;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.answer-key{font-weight:600;color:var(--ink) !important;font-size:15px !important}
+.sample{font-family:var(--read);font-size:15.5px !important;color:var(--ink) !important;line-height:1.7 !important}
+
+/* ---------------------------------------------------------------- figures */
+.fig-wrap{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin:2px 0}
+.fig{color:var(--ink);display:block;height:auto}
+.fig-scroll{max-width:100%;overflow-x:auto;padding-bottom:3px}
+.fig-title{font-size:13.5px;font-weight:700;color:var(--ink)}
+.fig-cap{font-size:12px;color:var(--ink-faint)}
+.unitcap{display:flex;align-items:center;gap:5px}
+.unitcap .fig{width:16px;flex:0 0 16px}
+.fig-row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}
+.fig-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.fig-sublabel{font-size:12.5px;font-weight:600;color:var(--ink-soft);text-align:center}
+.pattern-row{flex-wrap:nowrap;align-items:flex-end;gap:14px}
+.term-no{font-size:11.5px;font-weight:700;border:1px solid var(--rule-strong);border-radius:4px;padding:0 7px;color:var(--ink-soft)}
+.seq-row{gap:6px;flex-wrap:nowrap}
+.seq-item{flex:0 0 auto}
+.fig-axis{stroke:currentColor;stroke-width:1.4;fill:none}
+.fig-grid{stroke:var(--rule);stroke-width:1;fill:none}
+.fig-cell{stroke:var(--rule-strong);stroke-width:1}
+.fig-tick{font-family:var(--sans);font-size:11px;fill:var(--ink-soft)}
+.fig-mark{font-family:var(--disp);font-size:13px;font-weight:700;fill:var(--ink)}
+.fig-axlabel{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink-soft)}
+.fig-sectorlabel{font-family:var(--sans);font-size:11.5px;font-weight:700;fill:#fff}
+.fig-sectorlabel-dark{font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--ink)}
+.money-val{font-family:var(--disp);font-size:17px;font-weight:800;fill:#1A2531}
+.money-word{font-family:var(--sans);font-size:7px;fill:#1A2531;opacity:.7}
+.coin-val{font-family:var(--disp);font-size:12px;font-weight:800;fill:#1A2531}
+.picto-row{display:flex;gap:3px;align-items:center;flex-wrap:wrap;min-height:22px}
+.picto-sym{color:var(--accent);flex:0 0 20px}
+.picto-key{display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft)}
+.codeblock{
+  font-family:var(--mono);font-size:14px;line-height:1.65;background:var(--surface-2);
+  border:1px solid var(--rule);border-radius:var(--r-m);padding:12px 15px;margin:0;
+  overflow-x:auto;max-width:100%;color:var(--ink);
+}
+.codeblock.vertical{font-size:17px;letter-spacing:.08em;line-height:1.5}
+.framed-text{border:1px solid var(--rule-strong);border-radius:var(--r-m);padding:12px 15px;background:var(--surface-2);font-size:15px}
+
+/* ----------------------------------------------------------------- tables */
+.tbl-scroll{max-width:100%;overflow-x:auto}
+.q-table{border-collapse:collapse;font-size:14.5px;background:var(--surface)}
+.q-table th,.q-table td{border:1px solid var(--rule-strong);padding:7px 12px;text-align:left}
+.q-table th{background:var(--surface-2);font-weight:700;font-size:13.5px}
+.q-table td{font-variant-numeric:tabular-nums}
+.q-table.calendar th,.q-table.calendar td{text-align:center;padding:4px 0;min-width:34px;font-variant-numeric:tabular-nums}
+.q-table.calendar td.empty{background:var(--surface-2)}
+.calendar .circled{display:inline-grid;place-items:center;width:24px;height:24px;border:2px solid var(--accent);border-radius:999px;font-weight:700;color:var(--accent-ink)}
+.pictograph th{min-width:96px}
+
+/* ---------------------------------------------------------------- results */
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:30px}
+.result-card{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--rule-strong);border-radius:0 0 var(--r-m) var(--r-m);padding:18px 18px 16px;display:flex;flex-direction:column;gap:9px}
+.result-card.lv-1{border-top-color:var(--lv1)}
+.result-card.lv-2{border-top-color:var(--lv2)}
+.result-card.lv-3{border-top-color:var(--lv3)}
+.result-card.lv-4{border-top-color:var(--lv4)}
+.result-comp{font-size:14px;font-weight:700;color:var(--ink-soft);letter-spacing:.01em}
+.result-mark{font-family:var(--disp);font-size:32px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.ladder{display:flex;gap:4px}
+.ladder-step{
+  flex:1;height:24px;border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);
+  display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--ink-faint);
+}
+.result-card.lv-1 .ladder-step.on,.result-card.lv-1 .ladder-step.past{background:var(--lv1);border-color:var(--lv1);color:var(--surface)}
+.result-card.lv-2 .ladder-step.on,.result-card.lv-2 .ladder-step.past{background:var(--lv2);border-color:var(--lv2);color:var(--surface)}
+.result-card.lv-3 .ladder-step.on,.result-card.lv-3 .ladder-step.past{background:var(--lv3);border-color:var(--lv3);color:var(--surface)}
+.result-card.lv-4 .ladder-step.on,.result-card.lv-4 .ladder-step.past{background:var(--lv4);border-color:var(--lv4);color:var(--surface)}
+.result-level{font-family:var(--disp);font-size:17px;font-weight:700}
+.result-note{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+.strand-box{margin-bottom:30px}
+.strand-list{display:flex;flex-direction:column;gap:7px;margin-top:16px}
+.strand-row{display:grid;grid-template-columns:minmax(110px,1.2fr) 3fr auto;gap:12px;align-items:center}
+.strand-name{font-size:13.5px;font-weight:600}
+.strand-track{height:9px;background:var(--surface-3);border-radius:999px;overflow:hidden}
+.strand-fill{height:100%;border-radius:999px;background:var(--accent)}
+.strand-fill.good{background:var(--good)}
+.strand-fill.mid{background:var(--lv2)}
+.strand-fill.low{background:var(--bad)}
+.strand-val{font-size:12.5px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums;min-width:48px;text-align:right}
+
+/* ------------------------------------------------------------------ pager */
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);flex-wrap:wrap}
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width:640px){
+  #app{padding-block:22px 52px}
+  .passage{padding:18px 16px 16px}
+  .qcard{padding:15px 15px 14px}
+  .para p{font-size:16px}
+  .qstem{font-size:16px}
+  .scorebar-inner{padding:9px 16px 7px}
+  .progress-label{padding:4px 16px 6px}
+  .sb-chip{min-width:56px;padding:3px 7px}
+  .rail-results{margin-left:0;width:100%}
+  .strand-row{grid-template-columns:1fr auto;grid-template-areas:"name val" "track track";row-gap:4px}
+  .strand-name{grid-area:name}.strand-val{grid-area:val}.strand-track{grid-area:track}
+  .pager{flex-direction:column;align-items:stretch}
+  .pager .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Skip to the questions</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">G3</span>
+    <span class="brand-name">EQAO Practice
+      <span class="brand-sub">Assessment of Reading, Writing and Mathematics</span>
+    </span>
+  </div>
+  <button type="button" class="icon-toggle" id="theme-toggle" aria-label="Switch between light and dark mode">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"></circle>
+      <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"></path>
+    </svg>
+  </button>
+</header>
+
+<div id="scorebar" hidden></div>
+<main id="app"></main>
+
+<script>
+window.EQAO_DATA = window.EQAO_DATA || {};
+window.EQAO_DATA["t1_lang"] = {
+ "sessions": [
+  {
+   "id": "A",
+   "name": "Session A",
+   "kind": "reading",
+   "label": "Reading — Informational Text",
+   "minutes": 25,
+   "passage": {
+    "title": "Why Monarch Butterflies Travel So Far",
+    "genre": "informational",
+    "wordCount": 220,
+    "intro": "Read this text about monarch butterflies. Then answer the questions.",
+    "paragraphs": [
+     "Every year in late summer, monarch butterflies in Ontario begin one of the longest trips made by any insect. Monarchs that live east of the Rocky Mountains leave Canada and the United States and fly all the way to central Mexico. Some of them travel about 4000 kilometres before they stop.",
+     "Monarchs make this trip because they cannot live through a Canadian winter. Their bodies are too small and too light to stay warm in ice and snow. In Mexico the butterflies rest in the oyamel fir forests high in the mountains. The thick trees keep them cool but never frozen, and thousands of monarchs cling to the same branches all winter.",
+     "The trip back north is different. No single butterfly flies the whole way home. A monarch lays eggs in the spring, and its young keep travelling north. It takes several generations of monarchs to finish the journey back to Canada. The butterfly that lands in an Ontario garden in July is the great-grandchild of the one that flew south.",
+     "Milkweed is the only plant that monarch caterpillars will eat. Without milkweed, the caterpillars cannot grow into butterflies. That is why many Ontario students now plant milkweed beside their schools. A small patch of milkweed can help the next group of travellers get ready for the long flight south."
+    ],
+    "features": {
+     "type": "table",
+     "caption": "Monarch Facts at a Glance",
+     "headers": [
+      "Monarch fact",
+      "Detail"
+     ],
+     "rows": [
+      [
+       "Distance flown to Mexico",
+       "About 4000 km"
+      ],
+      [
+       "Months of the trip south",
+       "August to November"
+      ],
+      [
+       "Food for the caterpillars",
+       "Milkweed only"
+      ]
+     ]
+    }
+   },
+   "questions": [
+    {
+     "id": "t1-l-a-q1",
+     "format": "single",
+     "stem": "In paragraph 2, the text says that thousands of monarchs <b>cling</b> to the same branches all winter. What does the word <b>cling</b> mean?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "fly away quickly"
+      },
+      {
+       "id": "B",
+       "text": "fall to the ground"
+      },
+      {
+       "id": "C",
+       "text": "build a small nest"
+      },
+      {
+       "id": "D",
+       "text": "hold on tightly"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Think about what a butterfly must do to stay on a branch for a whole winter.",
+     "explanation": "The monarchs stay on the same branches all winter long. To do that they must hold on tightly.",
+     "skill": "Vocabulary",
+     "expectation": "B2.4"
+    },
+    {
+     "id": "t1-l-a-q2",
+     "format": "single",
+     "stem": "In paragraph 2, why do monarchs make the long trip to Mexico?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Their eggs only hatch in the oyamel fir forests."
+      },
+      {
+       "id": "B",
+       "text": "They are too heavy to fly in ice and snow."
+      },
+      {
+       "id": "C",
+       "text": "They need to find milkweed to eat."
+      },
+      {
+       "id": "D",
+       "text": "They cannot live through a Canadian winter."
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Find the sentence in paragraph 2 that has the word <b>because</b> in it.",
+     "explanation": "Paragraph 2 says monarchs make the trip because they cannot live through a Canadian winter. The text says their bodies are too small and too light, not too heavy.",
+     "skill": "Explicit",
+     "expectation": "C2.2"
+    },
+    {
+     "id": "t1-l-a-q3",
+     "format": "single",
+     "stem": "Look at the table called <b>Monarch Facts at a Glance</b>. Why did the writer add this table to the text?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "to show a few important facts in a short, clear way"
+      },
+      {
+       "id": "B",
+       "text": "to tell the story of one butterfly's long trip"
+      },
+      {
+       "id": "C",
+       "text": "to show the reader where the oyamel forests are"
+      },
+      {
+       "id": "D",
+       "text": "to list the Ontario schools that plant milkweed"
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Read the two words at the top of the table, then read one row across.",
+     "explanation": "Each row of the table gives one fact and one short detail. A table like this lets a reader find the key facts quickly.",
+     "skill": "TextFeatures",
+     "expectation": "C1.5"
+    },
+    {
+     "id": "t1-l-a-q4",
+     "format": "multi",
+     "stem": "Read this sentence about the text.<br>In the fall, monarchs leave ontario and fly south to mexico.<br>Choose the <b>TWO</b> words that should begin with a capital letter.",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "fall"
+      },
+      {
+       "id": "B",
+       "text": "south"
+      },
+      {
+       "id": "C",
+       "text": "ontario"
+      },
+      {
+       "id": "D",
+       "text": "mexico"
+      }
+     ],
+     "answer": [
+      "C",
+      "D"
+     ],
+     "points": 2,
+     "hint": "Look for the words that name one special place.",
+     "explanation": "Ontario and Mexico are names of places, so they need capital letters. The words fall and south are not names of places, so they stay lower case.",
+     "skill": "Conventions",
+     "expectation": "B3.6"
+    },
+    {
+     "id": "t1-l-a-q5",
+     "format": "open",
+     "stem": "The text says that many Ontario students now plant milkweed beside their schools. Explain how this helps monarch butterflies. Use <b>two</b> details from the text in your answer.",
+     "visual": null,
+     "lines": 6,
+     "rubricType": "reading",
+     "answer": null,
+     "points": 4,
+     "sampleAnswer": "Planting milkweed helps monarchs because milkweed is the only plant that monarch caterpillars will eat. The text says that without milkweed the caterpillars cannot grow into butterflies. If students grow milkweed near the school, the caterpillars get food and can turn into butterflies that fly all the way to Mexico.",
+     "rubricRows": [
+      {
+       "code": "40",
+       "text": "I explained how planting milkweed helps monarchs, and I used at least two clear details from the text."
+      },
+      {
+       "code": "30",
+       "text": "I explained how planting milkweed helps monarchs, and I used one clear detail from the text."
+      },
+      {
+       "code": "20",
+       "text": "I wrote something about milkweed, but my details were fuzzy or only partly right."
+      },
+      {
+       "code": "10",
+       "text": "I wrote about butterflies, but I did not use the text to explain my idea."
+      }
+     ],
+     "hint": "Read paragraph 4 again. What happens to a caterpillar when there is no milkweed?",
+     "explanation": "A strong answer links two ideas from paragraph 4: milkweed is the only food monarch caterpillars eat, and without it the caterpillars cannot grow into butterflies.",
+     "skill": "Implicit",
+     "expectation": "C3.2"
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "name": "Session B",
+   "kind": "writing",
+   "label": "Writing",
+   "minutes": 35,
+   "questions": [
+    {
+     "id": "t1-l-b-q1",
+     "format": "single",
+     "stem": "Which sentence is written correctly?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Fatima asked, \"Can I borrow your ruler.\""
+      },
+      {
+       "id": "B",
+       "text": "Fatima asked, \"can I borrow your ruler?\""
+      },
+      {
+       "id": "C",
+       "text": "Fatima asked \"Can I borrow your ruler?\""
+      },
+      {
+       "id": "D",
+       "text": "Fatima asked, \"Can I borrow your ruler?\""
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Look at three things: the comma before the talking, the first letter inside the quotation marks, and the mark at the end.",
+     "explanation": "A comma goes before the words a person says. The first word inside the quotation marks needs a capital letter, and a question ends with a question mark.",
+     "skill": "Conventions",
+     "expectation": "B3.6"
+    },
+    {
+     "id": "t1-l-b-q2",
+     "format": "single",
+     "stem": "Which word best completes the sentence?<br>Yesterday, Mateo &nbsp;______&nbsp; his little sister with her boots.",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "helping"
+      },
+      {
+       "id": "B",
+       "text": "helps"
+      },
+      {
+       "id": "C",
+       "text": "will help"
+      },
+      {
+       "id": "D",
+       "text": "helped"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "The word <b>Yesterday</b> tells you when it happened.",
+     "explanation": "Yesterday means the action is finished, so the verb must be in the past. Mateo helped his little sister.",
+     "skill": "Conventions",
+     "expectation": "B3.5"
+    },
+    {
+     "id": "t1-l-b-q3",
+     "format": "single",
+     "stem": "Which sentence uses an apostrophe correctly?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Nour's mitten fell in the snow."
+      },
+      {
+       "id": "B",
+       "text": "We saw three bird's on the fence."
+      },
+      {
+       "id": "C",
+       "text": "My friends bike has a red bell."
+      },
+      {
+       "id": "D",
+       "text": "The two dog's barked at the gate."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "An apostrophe can show that something belongs to someone. It does not make a word mean more than one.",
+     "explanation": "Nour's mitten shows the mitten belongs to Nour. In A and D the apostrophe is wrong because dogs and birds just mean more than one. In B the apostrophe is missing from friend's.",
+     "skill": "Conventions",
+     "expectation": "B3.6"
+    },
+    {
+     "id": "t1-l-b-q4",
+     "format": "single",
+     "stem": "Read this sentence from a student's story.<br>The rain at recess was very <b>big</b>.<br>Which word is the best choice to use instead of <b>big</b>?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "wide"
+      },
+      {
+       "id": "B",
+       "text": "tall"
+      },
+      {
+       "id": "C",
+       "text": "long"
+      },
+      {
+       "id": "D",
+       "text": "heavy"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Say each word out loud in the sentence. Which one do people really use to talk about rain?",
+     "explanation": "Writers say heavy rain when a lot of rain falls fast. Tall, wide and long tell about the size or shape of a thing, not about rain.",
+     "skill": "Vocabulary",
+     "expectation": "B2.5"
+    },
+    {
+     "id": "t1-l-b-q5",
+     "format": "single",
+     "stem": "Read this sentence.<br>Dev had to <b>reread</b> the page because he did not understand it the first time.<br>What does the word <b>reread</b> mean?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "stop reading it"
+      },
+      {
+       "id": "B",
+       "text": "read it out loud"
+      },
+      {
+       "id": "C",
+       "text": "read it for the very first time"
+      },
+      {
+       "id": "D",
+       "text": "read it again"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Look at the word part <b>re-</b> at the front. Think of the words replay and refill.",
+     "explanation": "The word part re- means again. Reread means to read something again, which is what Dev did because he did not understand it.",
+     "skill": "Vocabulary",
+     "expectation": "B2.3"
+    },
+    {
+     "id": "t1-l-b-q6",
+     "format": "order",
+     "stem": "Zainab wrote four sentences about how she made a bird feeder. Right now they are mixed up.",
+     "visual": null,
+     "items": [
+      "First, I washed out an empty milk carton.",
+      "Next, I cut a small door in one side.",
+      "Then, I poured birdseed into the bottom.",
+      "Last, I hung the feeder on a branch with string."
+     ],
+     "answer": [
+      "First, I washed out an empty milk carton.",
+      "Next, I cut a small door in one side.",
+      "Then, I poured birdseed into the bottom.",
+      "Last, I hung the feeder on a branch with string."
+     ],
+     "prompt": "Put Zainab's sentences in the best order from first to last.",
+     "points": 2,
+     "hint": "Look at the first word of each sentence. Those words tell you the order.",
+     "explanation": "The order words First, Next, Then and Last show the order. Zainab must wash the carton before she can cut it, fill it and hang it up.",
+     "skill": "Organization",
+     "expectation": "D2.2"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "name": "Session C",
+   "kind": "reading",
+   "label": "Reading — Narrative Text",
+   "minutes": 35,
+   "passage": {
+    "title": "The Mitten on the Fence",
+    "genre": "narrative",
+    "wordCount": 463,
+    "intro": "Read this story. Then answer the questions.",
+    "paragraphs": [
+     "On Monday morning, Jonah saw a red mitten hooked on the schoolyard fence. It hung by its thumb from the wire, swinging a little in the cold wind. Somebody would take it home at lunch, he thought. He pulled his hat down over his ears and ran off to play tag by the portables.",
+     "On Tuesday the mitten was still there. On Wednesday it was stiff with frost. By Thursday, Jonah could not walk past it any more. He stopped and looked at it closely for the first time. The mitten was not from a store. The stitches were small and neat, and a tiny yellow bird was sewn near the wrist.",
+     "\"Somebody has been missing that all week,\" Jonah said to Priya. \"One whole week with one bare hand.\"",
+     "\"Then put it in the lost and found,\" Priya said. She was already halfway up the snow hill.",
+     "Jonah stood by the fence for a long minute. Then he unhooked the mitten and pushed it deep into his coat pocket.",
+     "At lunch he asked almost everyone in Room 12. Nobody said the mitten was theirs. He even dug through the lost and found bin, which smelled like old snow boots and held two left boots, a swim cap and somebody's lunch bag.",
+     "\"Does this belong to anyone?\" Ms. Ferreira asked at the end of the day. She held the red mitten up high so the whole class could see it. Nobody put up a hand.",
+     "Jonah was pulling on his coat when he noticed Wei at the back of the coat room. Wei had both hands tucked up inside his sleeves. He had been doing that since Monday, and Jonah had thought he was only cold.",
+     "\"Wei,\" Jonah said. He held the mitten out flat on his palm. \"Is this yours?\"",
+     "Wei did not reach for it right away. \"It came off on the bus steps,\" he said. \"I went back at recess and looked. I could not find it.\"",
+     "\"It was hanging on the fence at the back of the yard,\" Jonah said. \"All week.\"",
+     "\"I never go back there,\" said Wei.",
+     "Then Wei took the mitten in both hands. He rubbed his thumb over the little yellow bird, back and forth, and he did not say anything at all. After a long moment he pulled the mitten on and flexed his fingers. \"My grandmother made these,\" he said. \"She counts the rows out loud so she does not lose her place.\"",
+     "The bell rang. Wei walked out beside Jonah instead of at the end of the line, and he talked the whole way to the door about his grandmother's basket of wool. Jonah still checks the back fence every morning. He has never found anything hanging there again, but he looks."
+    ],
+    "features": null
+   },
+   "questions": [
+    {
+     "id": "t1-l-c-q1",
+     "format": "single",
+     "stem": "The mitten hung on the fence for a whole week. What reason does the story give for this?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Wei never went to the back of the schoolyard."
+      },
+      {
+       "id": "B",
+       "text": "The mitten was stuck in the wire and nobody could pull it free."
+      },
+      {
+       "id": "C",
+       "text": "Ms. Ferreira told the class to leave lost things where they were."
+      },
+      {
+       "id": "D",
+       "text": "Nobody at the school noticed the mitten at all."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Read what Wei says right after Jonah tells him where the mitten was.",
+     "explanation": "Jonah says the mitten was on the fence at the back of the yard, and Wei answers, \"I never go back there.\" Jonah did notice the mitten, so choice D cannot be right.",
+     "skill": "Explicit",
+     "expectation": "C2.2"
+    },
+    {
+     "id": "t1-l-c-q2",
+     "format": "single",
+     "stem": "In paragraph 5, Jonah <b>unhooked</b> the mitten. What does the word <b>unhooked</b> mean?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "looked around for a hook"
+      },
+      {
+       "id": "B",
+       "text": "hung it back up"
+      },
+      {
+       "id": "C",
+       "text": "tore a hole in it"
+      },
+      {
+       "id": "D",
+       "text": "took it off the wire"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "The word part <b>un-</b> at the front often means the opposite. Think of untie and unlock.",
+     "explanation": "The mitten was hooked on the fence. Un- means the opposite, so unhooked means Jonah took it off the wire and then put it in his pocket.",
+     "skill": "Vocabulary",
+     "expectation": "B2.3"
+    },
+    {
+     "id": "t1-l-c-q3",
+     "format": "single",
+     "stem": "In paragraph 8, Wei has both hands tucked up inside his sleeves. What does this most likely tell the reader?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Wei does not like standing in the coat room."
+      },
+      {
+       "id": "B",
+       "text": "Wei is hiding something he found in the yard."
+      },
+      {
+       "id": "C",
+       "text": "Wei forgot to bring his coat to school."
+      },
+      {
+       "id": "D",
+       "text": "Wei has been going without one of his mittens."
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "The story says Wei has done this since Monday. What else happened on Monday?",
+     "explanation": "Wei tucks his hands away all week, and later he says his mitten came off on the bus steps. He has been keeping a bare hand warm and out of sight.",
+     "skill": "Implicit",
+     "expectation": "C3.2"
+    },
+    {
+     "id": "t1-l-c-q4",
+     "format": "dropdown",
+     "stem": "Choose the words that make each sentence about the story true.<br>This story is told by {{slot1}}.<br>The only person whose thoughts the reader is told about is {{slot2}}.",
+     "visual": null,
+     "slots": [
+      {
+       "id": "slot1",
+       "choices": [
+        "Jonah",
+        "Wei",
+        "a narrator outside the story"
+       ]
+      },
+      {
+       "id": "slot2",
+       "choices": [
+        "Jonah",
+        "Wei",
+        "Priya"
+       ]
+      }
+     ],
+     "answer": {
+      "slot1": "a narrator outside the story",
+      "slot2": "Jonah"
+     },
+     "points": 2,
+     "hint": "Outside the quotation marks, does the story ever use the word <b>I</b>?",
+     "explanation": "Outside of the talking, the story uses he and his for everyone, so a narrator outside the story is telling it. The reader is told what Jonah thought in paragraph 1 and paragraph 8, but never what Wei or Priya thought.",
+     "skill": "TextFeatures",
+     "expectation": "C1.6"
+    },
+    {
+     "id": "t1-l-c-q5",
+     "format": "single",
+     "stem": "Which sentence from the story best helps the reader picture what the mitten looked like?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "The stitches were small and neat, and a tiny yellow bird was sewn near the wrist."
+      },
+      {
+       "id": "B",
+       "text": "Jonah stood by the fence for a long minute."
+      },
+      {
+       "id": "C",
+       "text": "On Tuesday the mitten was still there."
+      },
+      {
+       "id": "D",
+       "text": "Nobody said the mitten was theirs."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Look for the sentence with the most describing words in it.",
+     "explanation": "Choice A describes the stitches and the little yellow bird, so the reader can see the mitten. The other sentences tell what happened but not what the mitten looked like.",
+     "skill": "TextFeatures",
+     "expectation": "C1.4"
+    },
+    {
+     "id": "t1-l-c-q6",
+     "format": "multi",
+     "stem": "Read this sentence from paragraph 1.<br>He pulled his hat down over his ears and ran off to play tag by the portables.<br>Choose the <b>TWO</b> words below that are action words (verbs).",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "ears"
+      },
+      {
+       "id": "B",
+       "text": "hat"
+      },
+      {
+       "id": "C",
+       "text": "pulled"
+      },
+      {
+       "id": "D",
+       "text": "ran"
+      }
+     ],
+     "answer": [
+      "C",
+      "D"
+     ],
+     "points": 2,
+     "hint": "Ask yourself which words tell what Jonah did.",
+     "explanation": "Pulled and ran tell what Jonah did, so they are action words. Hat and ears are naming words for things.",
+     "skill": "Conventions",
+     "expectation": "B3.5"
+    },
+    {
+     "id": "t1-l-c-q7",
+     "format": "single",
+     "stem": "In paragraph 13, Wei rubs his thumb over the little yellow bird and does not say anything at all. What does this most likely show?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Wei is brushing dirt off the mitten."
+      },
+      {
+       "id": "B",
+       "text": "The mitten is the wrong size for Wei."
+      },
+      {
+       "id": "C",
+       "text": "Wei thinks the mitten belongs to someone else."
+      },
+      {
+       "id": "D",
+       "text": "The mitten is very special to Wei."
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Read the next thing Wei says. Who made the mitten?",
+     "explanation": "Right after this, Wei says his grandmother made the mittens and counts the rows out loud. Taking his time with the little bird shows the mitten means a lot to him.",
+     "skill": "Implicit",
+     "expectation": "C3.3"
+    },
+    {
+     "id": "t1-l-c-q8",
+     "format": "dragdrop",
+     "stem": "Drag the name of the person who says each sentence in the story.",
+     "visual": null,
+     "tokens": [
+      "Jonah",
+      "Priya",
+      "Wei",
+      "Ms. Ferreira"
+     ],
+     "targets": [
+      {
+       "id": "t1",
+       "label": "\"Then put it in the lost and found.\""
+      },
+      {
+       "id": "t2",
+       "label": "\"My grandmother made these.\""
+      }
+     ],
+     "answer": {
+      "t1": "Priya",
+      "t2": "Wei"
+     },
+     "points": 2,
+     "hint": "Find each sentence in the story. The name is usually right beside the quotation marks.",
+     "explanation": "In paragraph 4, Priya tells Jonah to put the mitten in the lost and found. In paragraph 13, Wei says his grandmother made the mittens.",
+     "skill": "Explicit",
+     "expectation": "C2.3"
+    },
+    {
+     "id": "t1-l-c-q9",
+     "format": "single",
+     "stem": "In paragraph 2, the mitten was <b>stiff</b> with frost. What does the word <b>stiff</b> mean here?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "large and heavy"
+      },
+      {
+       "id": "B",
+       "text": "soft and warm"
+      },
+      {
+       "id": "C",
+       "text": "bright and shiny"
+      },
+      {
+       "id": "D",
+       "text": "hard and not easy to bend"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Think about what happens to wet cloth when it freezes outside.",
+     "explanation": "Frost freezes the wet wool. A frozen mitten turns hard and will not bend easily.",
+     "skill": "Vocabulary",
+     "expectation": "B2.4"
+    },
+    {
+     "id": "t1-l-c-q10",
+     "format": "order",
+     "stem": "This story uses a time-order pattern. It tells the events in the order they happened.",
+     "visual": null,
+     "items": [
+      "Jonah sees a red mitten on the schoolyard fence.",
+      "Ms. Ferreira holds the mitten up for the whole class.",
+      "Wei tells Jonah that the mitten came off on the bus steps.",
+      "Wei walks out of the room beside Jonah."
+     ],
+     "answer": [
+      "Jonah sees a red mitten on the schoolyard fence.",
+      "Ms. Ferreira holds the mitten up for the whole class.",
+      "Wei tells Jonah that the mitten came off on the bus steps.",
+      "Wei walks out of the room beside Jonah."
+     ],
+     "prompt": "Put the events in order from first to last.",
+     "points": 2,
+     "hint": "Find each event in the story. Which one is closest to the beginning?",
+     "explanation": "Jonah sees the mitten on Monday in paragraph 1. Ms. Ferreira holds it up in paragraph 7. Wei talks about the bus steps in paragraph 10, and he walks out beside Jonah in the last paragraph.",
+     "skill": "TextFeatures",
+     "expectation": "C1.4"
+    },
+    {
+     "id": "t1-l-c-q11",
+     "format": "open",
+     "stem": "The story never uses a feeling word to tell how Wei feels when he gets his mitten back. How do you think Wei feels? Use <b>two</b> details from the story to explain how you know.",
+     "visual": null,
+     "lines": 6,
+     "rubricType": "reading",
+     "answer": null,
+     "points": 4,
+     "sampleAnswer": "I think Wei feels happy and a little shy. He does not grab the mitten right away and he does not say anything for a long time. He rubs his thumb on the little yellow bird because his grandmother made the mittens for him. At the end he walks beside Jonah and talks the whole way to the door, and he did not do that before.",
+     "rubricRows": [
+      {
+       "code": "40",
+       "text": "I told how Wei feels and I used at least two clear details from the story to show how I know."
+      },
+      {
+       "code": "30",
+       "text": "I told how Wei feels and I used one clear detail from the story."
+      },
+      {
+       "code": "20",
+       "text": "I named a feeling, but my details were fuzzy or only partly right."
+      },
+      {
+       "code": "10",
+       "text": "I wrote about the story, but I did not use it to explain how Wei feels."
+      }
+     ],
+     "hint": "Look at what Wei does with his hands and where he walks at the end. Actions can show feelings.",
+     "explanation": "A strong answer names a feeling and backs it up with actions from the story, such as Wei not reaching for the mitten, rubbing his thumb over the yellow bird, or walking and talking beside Jonah at the end.",
+     "skill": "Implicit",
+     "expectation": "C3.3"
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "name": "Session D",
+   "kind": "writing",
+   "label": "Writing",
+   "minutes": 35,
+   "prompt": {
+    "title": "A Time Someone Helped",
+    "instruction": "Think about a time you helped someone, or a time someone helped you. Write about what happened. Tell who it was, what you did, and why it mattered to you. Write this for your teacher and your classmates.",
+    "checklist": [
+     "Choose one time. Just one.",
+     "Plan a beginning, a middle and an end before you start.",
+     "Tell what happened in the order it happened.",
+     "Add details so the reader can picture it.",
+     "Tell why it mattered to you.",
+     "Check your capital letters, end marks and spelling."
+    ]
+   },
+   "questions": [
+    {
+     "id": "t1-l-d-q1",
+     "format": "single",
+     "stem": "Read this sentence.<br>What a huge snowbank that is<br>Which mark should go at the end of the sentence?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "an exclamation mark"
+      },
+      {
+       "id": "B",
+       "text": "a question mark"
+      },
+      {
+       "id": "C",
+       "text": "a period"
+      },
+      {
+       "id": "D",
+       "text": "a comma"
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Say the sentence out loud. Is the writer asking something, telling something, or showing strong feeling?",
+     "explanation": "The sentence starts with What a and shows strong feeling, so it ends with an exclamation mark. It is not asking a question, so a question mark would be wrong.",
+     "skill": "Conventions",
+     "expectation": "B3.6"
+    },
+    {
+     "id": "t1-l-d-q2",
+     "format": "single",
+     "stem": "Which sentence is written correctly?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "Hugo and I cleans up the art table."
+      },
+      {
+       "id": "B",
+       "text": "Hugo and me cleaned up the art table."
+      },
+      {
+       "id": "C",
+       "text": "Me and Hugo cleaned up the art table."
+      },
+      {
+       "id": "D",
+       "text": "Hugo and I cleaned up the art table."
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Try the sentence with only one person in it. Would you say <b>Me cleaned</b> or <b>I cleaned</b>?",
+     "explanation": "You would say I cleaned up the art table, so the correct words are Hugo and I. In choice A the verb cleans does not match two people.",
+     "skill": "Conventions",
+     "expectation": "B3.5"
+    },
+    {
+     "id": "t1-l-d-q3",
+     "format": "single",
+     "stem": "Read this sentence from a student's story.<br>The old dog <b>walked slowly</b> down the hall.<br>Which word could take the place of <b>walked slowly</b> and still mean the same thing?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "jumped"
+      },
+      {
+       "id": "B",
+       "text": "raced"
+      },
+      {
+       "id": "C",
+       "text": "sat"
+      },
+      {
+       "id": "D",
+       "text": "shuffled"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Cross out any word that changes how fast the dog is moving.",
+     "explanation": "Shuffled means to walk slowly, dragging your feet a little. Raced and jumped are fast, and sat is not walking at all.",
+     "skill": "Vocabulary",
+     "expectation": "B2.5"
+    },
+    {
+     "id": "t1-l-d-q4",
+     "format": "single",
+     "stem": "Aanya is writing about the day she helped her neighbour shovel snow. She wrote this sentence.<br>Shovelling the driveway was harder than I thought it would be.<br>Which sentence adds the best detail to explain her idea?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "The snow was heavy and wet, and my arms ached after ten minutes."
+      },
+      {
+       "id": "B",
+       "text": "I have a red shovel in the garage."
+      },
+      {
+       "id": "C",
+       "text": "Snow falls in Ontario every winter."
+      },
+      {
+       "id": "D",
+       "text": "My favourite colour is green."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Look for the sentence that tells <b>why</b> the shovelling was hard.",
+     "explanation": "Choice A tells why the job was hard: heavy wet snow and aching arms. Choice C is true but it does not explain Aanya's idea, and choices A and D do not tell why the work was hard.",
+     "skill": "Ideas",
+     "expectation": "D1.2"
+    },
+    {
+     "id": "t1-l-d-q5",
+     "format": "single",
+     "stem": "Read this part of Owen's writing.<br>(1) Last summer I helped my grandfather in his garden. (2) We pulled weeds for a whole hour. (3) My cousin has a trampoline in her yard. (4) By the end, the rows of carrots were clear again.<br>Which sentence does <b>not</b> belong?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "sentence 1"
+      },
+      {
+       "id": "B",
+       "text": "sentence 2"
+      },
+      {
+       "id": "C",
+       "text": "sentence 4"
+      },
+      {
+       "id": "D",
+       "text": "sentence 3"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Owen's main idea is helping in the garden. Which sentence is about something else?",
+     "explanation": "Sentences 1, 2 and 4 are all about helping in the garden. Sentence 3 is about a trampoline, so it does not belong.",
+     "skill": "Ideas",
+     "expectation": "D1.3"
+    },
+    {
+     "id": "t1-l-d-q6",
+     "format": "single",
+     "stem": "Keisha is writing about the time her class helped at a food drive. Which sentence is the best <b>beginning</b> sentence for her writing?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "In March, our class collected 212 cans of food for the food bank."
+      },
+      {
+       "id": "B",
+       "text": "Next, we carried the heavy boxes out to the van."
+      },
+      {
+       "id": "C",
+       "text": "That is why I want to help again next year."
+      },
+      {
+       "id": "D",
+       "text": "Most cans of soup are made of metal."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "A good beginning tells the reader who, what and when before anything else happens.",
+     "explanation": "Choice A tells the reader who, what and when, so it opens the writing. Choice C sounds like an ending, choice B starts with Next so it belongs in the middle, and choice D is off the topic.",
+     "skill": "Organization",
+     "expectation": "D2.1"
+    },
+    {
+     "id": "t1-l-d-q7",
+     "format": "open",
+     "stem": "Think about a time you helped someone, or a time someone helped you.<br>Write about what happened. Tell who it was, what you did, and why it mattered to you.<br>Write this for your teacher and your classmates.",
+     "visual": null,
+     "lines": 16,
+     "rubricType": "writing",
+     "answer": null,
+     "points": 7,
+     "sampleAnswer": "Last winter my little brother Tomas fell off his sled at the hill beside our school. He was crying and his mitts were packed full of snow. I slid down on my boots and helped him stand up, and I brushed the snow off his back. Then I pulled his sled all the way up the hill so he would not have to. He stopped crying and went down three more times. It mattered to me because Tomas follows me everywhere, and I want him to know I will always help him. Now when I fall, he runs over to help me too.",
+     "topicRubric": [
+      {
+       "code": "40",
+       "text": "My writing stays on the topic the whole way through. It has a clear beginning, middle and end, and my details let the reader picture exactly what happened and why it mattered."
+      },
+      {
+       "code": "30",
+       "text": "My writing stays on the topic. I tell what happened in order and I give some details, but a few parts could use more."
+      },
+      {
+       "code": "20",
+       "text": "My writing is about the topic, but some parts wander away or are hard to follow, and my details are thin."
+      },
+      {
+       "code": "10",
+       "text": "I wrote a little about the topic. My ideas jump around, or I only wrote one or two sentences."
+      }
+     ],
+     "conventionsRubric": [
+      {
+       "code": "30",
+       "text": "I used capital letters and end marks correctly almost every time. My sentences are complete and most of my words are spelled correctly."
+      },
+      {
+       "code": "20",
+       "text": "I made some mistakes with capital letters, end marks or spelling, but a reader can still follow my writing."
+      },
+      {
+       "code": "10",
+       "text": "I made many mistakes with capital letters, end marks and spelling, and they make my writing hard to read."
+      }
+     ],
+     "hint": "Before you write, say the story out loud in your head. What happened first, next and last?",
+     "explanation": "A strong piece tells one true event in order, names who was helped, gives details a reader can picture, and ends by telling why it mattered.",
+     "skill": "Ideas",
+     "expectation": "D2.2"
+    }
+   ]
+  }
+ ]
+};
+
+window.EQAO_DATA = window.EQAO_DATA || {};
+window.EQAO_DATA["t1_math"] = {
+ "stages": [
+  {
+   "stage": 1,
+   "difficulty": "Medium",
+   "minutes": 30,
+   "questions": [
+    {
+     "id": "t1-m-s1-q1",
+     "format": "single",
+     "stem": "Amara counts the books on a cart in the school library. She counts 6 hundreds, 0 tens, and 3 ones. How many books are on the cart?",
+     "visual": null,
+     "options": [
+      {
+       "id": "A",
+       "text": "63"
+      },
+      {
+       "id": "B",
+       "text": "306"
+      },
+      {
+       "id": "C",
+       "text": "603"
+      },
+      {
+       "id": "D",
+       "text": "630"
+      }
+     ],
+     "answer": "C",
+     "points": 1,
+     "hint": "Write the hundreds first, then the tens, then the ones.",
+     "explanation": "6 hundreds is 600. 0 tens is 0. 3 ones is 3. 600 + 0 + 3 = 603.",
+     "strand": "Number",
+     "expectation": "B1.1",
+     "category": "KU",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q2",
+     "format": "single",
+     "stem": "The school library has 348 books about animals. Point A shows 348 on the number line. What is 348 rounded to the nearest ten?",
+     "visual": {
+      "type": "numberline",
+      "min": 300,
+      "max": 400,
+      "step": 10,
+      "labels": [
+       {
+        "value": 300,
+        "text": "300"
+       },
+       {
+        "value": 350,
+        "text": "350"
+       },
+       {
+        "value": 400,
+        "text": "400"
+       }
+      ],
+      "marks": [
+       {
+        "value": 348,
+        "letter": "A"
+       }
+      ]
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "300"
+      },
+      {
+       "id": "B",
+       "text": "340"
+      },
+      {
+       "id": "C",
+       "text": "350"
+      },
+      {
+       "id": "D",
+       "text": "400"
+      }
+     ],
+     "answer": "C",
+     "points": 1,
+     "hint": "Find the two tens that point A sits between. Which one is closer?",
+     "explanation": "348 is between 340 and 350. It is 8 away from 340 but only 2 away from 350, so 348 rounds to 350.",
+     "strand": "Number",
+     "expectation": "B1.3",
+     "category": "AP",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q3",
+     "format": "dragdrop",
+     "stem": "The table shows how many books are in four parts of the school library. Drag one number into the <b>Least</b> box and one number into the <b>Greatest</b> box.",
+     "visual": {
+      "type": "table",
+      "caption": "Books in the school library",
+      "headers": [
+       "Part of the library",
+       "Number of books"
+      ],
+      "rows": [
+       [
+        "Art",
+        "294"
+       ],
+       [
+        "Animals",
+        "348"
+       ],
+       [
+        "Space",
+        "384"
+       ],
+       [
+        "Sports",
+        "429"
+       ]
+      ]
+     },
+     "tokens": [
+      "294",
+      "429"
+     ],
+     "targets": [
+      {
+       "id": "t1",
+       "label": "Least"
+      },
+      {
+       "id": "t2",
+       "label": ""
+      },
+      {
+       "id": "t3",
+       "label": ""
+      },
+      {
+       "id": "t4",
+       "label": "Greatest"
+      }
+     ],
+     "fixed": {
+      "t2": "348",
+      "t3": "384"
+     },
+     "answer": {
+      "t1": "294",
+      "t4": "429"
+     },
+     "points": 1,
+     "hint": "Look at the hundreds digit in each number first.",
+     "explanation": "294 has only 2 hundreds, so it is the least. 429 has 4 hundreds, so it is the greatest. The order is 294, 348, 384, 429.",
+     "strand": "Number",
+     "expectation": "B1.2",
+     "category": "AP",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q4",
+     "format": "single",
+     "stem": "Nour buys a muffin at the bake sale for $2.75. She pays with a $5 bill. How much change should she get?",
+     "visual": {
+      "type": "money",
+      "groups": [
+       {
+        "label": "Nour pays",
+        "items": [
+         {
+          "kind": "bill",
+          "value": 5
+         }
+        ]
+       }
+      ]
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "$2.25"
+      },
+      {
+       "id": "B",
+       "text": "$2.35"
+      },
+      {
+       "id": "C",
+       "text": "$3.25"
+      },
+      {
+       "id": "D",
+       "text": "$7.75"
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Count up from $2.75 to $5.00.",
+     "explanation": "$2.75 and 25¢ makes $3.00. $3.00 and $2.00 more makes $5.00. So the change is $2.25.",
+     "strand": "Financial Literacy",
+     "expectation": "F1.1",
+     "category": "AP",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q5",
+     "format": "single",
+     "stem": "This shape pattern runs along the top of the bake sale poster. Which shape comes next?",
+     "visual": {
+      "type": "shapesequence",
+      "items": [
+       "triangle",
+       "circle",
+       "circle",
+       "triangle",
+       "circle",
+       "circle",
+       "triangle"
+      ]
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "rhombus"
+      },
+      {
+       "id": "B",
+       "text": "triangle"
+      },
+      {
+       "id": "C",
+       "text": "square"
+      },
+      {
+       "id": "D",
+       "text": "circle"
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "Find the small group of shapes that repeats over and over.",
+     "explanation": "The pattern repeats triangle, circle, circle. The last shape shown is a triangle, so a circle comes next.",
+     "strand": "Algebra",
+     "expectation": "C1.1",
+     "category": "KU",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q6",
+     "format": "dropdown",
+     "stem": "Both sides of the equal sign must have the same value. Choose the number that makes each number sentence true.<br>8 + 6 = 7 + {{slot1}}<br>15 − 5 = 2 × {{slot2}}",
+     "visual": null,
+     "slots": [
+      {
+       "id": "slot1",
+       "choices": [
+        "5",
+        "6",
+        "7"
+       ]
+      },
+      {
+       "id": "slot2",
+       "choices": [
+        "3",
+        "5",
+        "10"
+       ]
+      }
+     ],
+     "answer": {
+      "slot1": "7",
+      "slot2": "5"
+     },
+     "points": 1,
+     "hint": "Work out the side that already has two numbers first.",
+     "explanation": "8 + 6 = 14, and 7 + 7 = 14. Also 15 − 5 = 10, and 2 × 5 = 10.",
+     "strand": "Algebra",
+     "expectation": "C2.3",
+     "category": "TH",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q7",
+     "format": "single",
+     "stem": "The pictograph shows the muffins sold at the bake sale. How many more muffins were sold on Tuesday than on Monday?",
+     "visual": {
+      "type": "pictograph",
+      "title": "Muffins Sold at the Bake Sale",
+      "keyText": "Each circle represents 4 muffins.",
+      "rows": [
+       {
+        "label": "Monday",
+        "count": 3
+       },
+       {
+        "label": "Tuesday",
+        "count": 5
+       },
+       {
+        "label": "Wednesday",
+        "count": 2.5
+       },
+       {
+        "label": "Thursday",
+        "count": 4
+       }
+      ],
+      "half": true
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "2"
+      },
+      {
+       "id": "B",
+       "text": "8"
+      },
+      {
+       "id": "C",
+       "text": "12"
+      },
+      {
+       "id": "D",
+       "text": "32"
+      }
+     ],
+     "answer": "B",
+     "points": 1,
+     "hint": "Work out the number of muffins for each of those two days first. Each circle is worth 4.",
+     "explanation": "Tuesday has 5 circles, so 5 × 4 = 20 muffins. Monday has 3 circles, so 3 × 4 = 12 muffins. 20 − 12 = 8 more muffins.",
+     "strand": "Data",
+     "expectation": "D1.3",
+     "category": "TH",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q8",
+     "format": "single",
+     "stem": "At the bake sale there is a prize spinner. The arrow is spun one time. Which sentence is true?",
+     "visual": {
+      "type": "spinner",
+      "sectors": [
+       {
+        "label": "Blue",
+        "parts": 4
+       },
+       {
+        "label": "Red",
+        "parts": 2
+       },
+       {
+        "label": "Green",
+        "parts": 2
+       }
+      ]
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "The arrow is more likely to land on blue than on red."
+      },
+      {
+       "id": "B",
+       "text": "Landing on red and landing on blue are equally likely."
+      },
+      {
+       "id": "C",
+       "text": "It is impossible for the arrow to land on green."
+      },
+      {
+       "id": "D",
+       "text": "It is certain that the arrow will land on blue."
+      }
+     ],
+     "answer": "A",
+     "points": 1,
+     "hint": "Compare how much space each colour takes up on the spinner.",
+     "explanation": "Blue covers 4 parts and red covers only 2 parts. A bigger part gives a better chance, so blue is more likely than red.",
+     "strand": "Data",
+     "expectation": "D2.1",
+     "category": "TH",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q9",
+     "format": "single",
+     "stem": "This clock in the school library shows the time the reading club starts in the morning. What time does the reading club start?",
+     "visual": {
+      "type": "clock",
+      "hour": 9,
+      "minute": 20
+     },
+     "options": [
+      {
+       "id": "A",
+       "text": "4:45 a.m."
+      },
+      {
+       "id": "B",
+       "text": "8:20 a.m."
+      },
+      {
+       "id": "C",
+       "text": "9:04 a.m."
+      },
+      {
+       "id": "D",
+       "text": "9:20 a.m."
+      }
+     ],
+     "answer": "D",
+     "points": 1,
+     "hint": "The short hand tells the hour. The long hand tells the minutes.",
+     "explanation": "The short hand is just past 9, so the hour is 9. The long hand points to the 4, and 4 × 5 = 20 minutes. The time is 9:20 a.m.",
+     "strand": "Spatial Sense",
+     "expectation": "E2.6",
+     "category": "KU",
+     "fieldTest": false
+    },
+    {
+     "id": "t1-m-s1-q10",
+     "format": "multi",
+     "stem": "These objects were used at the bake sale. Choose the <b>TWO</b> objects that have a curved surface.",
+     "visual": {
+      "type&qu
